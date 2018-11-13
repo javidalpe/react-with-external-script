@@ -29,8 +29,7 @@ class Map extends React.Component {
   }
 }
 
-export default withExternalScript('https://maps.googleapis
-.com/maps/api/js?key=YOUR_API_KEY&callback=initMap', Map)
+export default withExternalScript('https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap', Map)
 ````
 
 D3 Hello World
@@ -47,8 +46,7 @@ class D3Chart extends React.Component {
   }
 }
 
-export default withExternalScript('https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.min.js', 
-D3Chart)
+export default withExternalScript('https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.min.js', D3Chart)
 ````
 
 ### Test
