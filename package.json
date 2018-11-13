@@ -4,7 +4,7 @@
   "description": "High Order Component to load external scripts",
   "main": "src/WithExternalScript.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,18 @@
   },
   "homepage": "https://github.com/javidalpe/react-with-external-script#readme",
   "dependencies": {
-    "react": "^16.6.3"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16.3": "^1.4.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1",
+    "sinon": "^7.1.1"
   }
 }

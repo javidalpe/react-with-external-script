@@ -1,11 +1,12 @@
 import React from "react";
 
-import { LoaderFull } from "../../ui-kit/molecules/loader-fullscreen/LoaderFullScreen";
-import * as utils from "../../services/helper/utils";
+import * as utils from "./AddBodyScript";
 import * as sinon from "sinon";
-import { Error } from "@nex/ui-kit-library";
 import { withExternalScript } from "./WithExternalScript";
 import * as dictionary from "./AlreadyAddedExternalScripts";
+import {shallow} from "enzyme";
+
+const DummyComponent = () => <div>Dummy</div>;
 
 describe("withExternalScript high order component", () => {
   const RandomComponent = () => <div>Hola</div>;
@@ -27,14 +28,29 @@ describe("withExternalScript high order component", () => {
   it("should render loading as initial state", () => {
     sandbox.stub(dictionary, "isScriptAlreadyAdded").returns(false);
     const component = shallow(<WithExternalRoute />);
-    expect(component.contains(<LoaderFull />)).toBe(true);
+    expect(component.type()).toBe(null);
   });
 
   it("should render error on error", () => {
     sandbox.stub(dictionary, "isScriptAlreadyAdded").returns(false);
     const component = shallow(<WithExternalRoute />);
     component.setState({ loading: false, error: true });
-    expect(component.containsMatchingElement(<Error />)).toBe(true);
+    expect(component.type()).toBe(null);
+  });
+
+  it("should render custom loading as initial state", () => {
+    sandbox.stub(dictionary, "isScriptAlreadyAdded").returns(false);
+    const WithCustomLoading = withExternalScript(RandomComponent, "foo", DummyComponent);
+    const wrapper = shallow(<WithCustomLoading/>);
+    expect(wrapper.contains(<DummyComponent/>)).toBe(true);
+  });
+
+  it("should render custom error on error", () => {
+    sandbox.stub(dictionary, "isScriptAlreadyAdded").returns(false);
+    const WithCustomError = withExternalScript(RandomComponent, "foo", null, DummyComponent);
+    const wrapper = shallow(<WithCustomError />);
+    wrapper.setState({ loading: false, error: true });
+    expect(wrapper.contains(<DummyComponent/>)).toBe(true);
   });
 
   it("should check is script is already added", () => {
