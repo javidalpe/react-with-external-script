@@ -1,0 +1,25 @@
+{
+  "name": "react-with-external-script",
+  "version": "1.0.0",
+  "description": "High Order Component to load external scripts",
+  "main": "src/WithExternalScript.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/javidalpe/react-with-external-script.git"
+  },
+  "keywords": [
+    "react",
+    "scripts",
+    "loader",
+    "hoc"
+  ],
+  "author": "Javier Vidal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javidalpe/react-with-external-script/issues"
+  },
+  "homepage": "https://github.com/javidalpe/react-with-external-script#readme"
+}
