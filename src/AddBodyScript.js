@@ -7,7 +7,7 @@ export const addBodyScript = src => {
     script.addEventListener("load", () => {
       resolve();
     });
-    script.addEventListener("error", function(e) {
+    script.addEventListener("error", (e) => {
       reject(e);
     });
     document.body.appendChild(script);
